@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 @Data
 public class FavoriteService {
     private final FavoriteRepository favoriteRepository;
@@ -23,9 +22,9 @@ public class FavoriteService {
     public Favorite save(Favorite favorite) {
         return favoriteRepository.save(favorite);
     }
-
+    @Transactional
     public void deleteFavoriteById(int id) {
-        favoriteRepository.deleteById(id);
+        favoriteRepository.deleteFavoriteByParentId(id);
     }
 
     public List<Favorite> getFavoriteByUserId(int user_id) {

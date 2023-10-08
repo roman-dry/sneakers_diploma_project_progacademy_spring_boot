@@ -28,6 +28,11 @@ public class CartController {
         cartService.deleteCartById(id);
     }
 
+    @DeleteMapping("/carted")
+    public void deleteCartByParentId(@RequestParam int user_id, @RequestParam int parent_id ) {
+        cartService.deleteCartByParentId(user_id, parent_id);
+    }
+
     @DeleteMapping("/cart")
     public void deleteCartByUserId(@RequestParam int user_id) {
         cartService.deleteCartByUserId(user_id);

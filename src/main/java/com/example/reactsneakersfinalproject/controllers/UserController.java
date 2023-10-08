@@ -29,4 +29,12 @@ public class UserController {
         return userService.getUserByPass(email);
     }
 
+    @PatchMapping("/user")
+    public void updateUser(@RequestParam int id,
+                           @RequestParam String name,
+                           @RequestParam String email,
+                           @RequestParam String phone,
+                           @RequestParam String password) {
+        userService.updateUser(id, name, email, phone, password);
+    }
 }

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Card {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int parent_id;
     private String title;
@@ -22,4 +22,5 @@ public class Card {
     private int count;
     @Column(name = "totalprice")
     private int totalPrice;
+    private int last_id;
 }

@@ -24,6 +24,9 @@ public class User {
     private String phone;
     @Column(name = "password")
     private String password;
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade=CascadeType.ALL)
     private List<Cart> carts;
@@ -36,5 +39,6 @@ public class User {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade=CascadeType.ALL)
     private List<Shipping> shippings;
+
 
 }

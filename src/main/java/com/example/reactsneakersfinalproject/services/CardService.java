@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 @Data
 public class CardService {
     private final CardRepository cardRepository;
@@ -22,6 +21,31 @@ public class CardService {
 
     public List<Card> findAll() {
         return cardRepository.findAll();
+    }
+
+    public Card save(Card card) {
+        return cardRepository.save(card);
+    }
+    @Transactional
+    public void updateCard(int id, String title, int price, String imageURL,
+                           int count, int totalPrice, int parent_id) {
+
+        cardRepository.updateCard(id, title, price, imageURL, count, totalPrice, parent_id);
+
+    }
+
+    public void deleteCardById(int id) {
+        cardRepository.deleteById(id);
+    }
+
+    public Card findCardById(int id) {
+        return cardRepository.findCardById(id);
+    }
+
+    @Transactional
+    public void updateLastIdCard(int id,  int last_id) {
+        cardRepository.updateLastIdCard(id, last_id);
+
     }
 
 }

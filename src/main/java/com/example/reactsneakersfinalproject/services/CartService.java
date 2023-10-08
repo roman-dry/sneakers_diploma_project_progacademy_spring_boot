@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 @Data
 public class CartService {
     private final CartRepository cartRepository;
@@ -27,7 +26,11 @@ public class CartService {
     public void deleteCartById(int id) {
         cartRepository.deleteById(id);
     }
-
+    @Transactional
+    public void deleteCartByParentId(int user_id, int parent_id) {
+        cartRepository.deleteByParentId(user_id, parent_id);
+    }
+    @Transactional
     public void deleteCartByUserId(int user_id) {
         cartRepository.deleteCartByUserId(user_id);
     }
@@ -35,7 +38,7 @@ public class CartService {
     public List<Cart> getCartsByUserId(int user_id) {
         return cartRepository.getCartsByUserId(user_id);
     }
-
+    @Transactional
     public void updateCartById(Cart cart) {
         int count = cart.getCount();
         int totalprice = cart.getTotalPrice();

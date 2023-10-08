@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 @Data
 public class OrderService {
     private final OrderRepository orderRepository;
@@ -31,6 +30,7 @@ public class OrderService {
     public List<Order> getOrderByUserId(int user_id) {
         return orderRepository.getOrderByUserId(user_id);
     }
+    @Transactional
     public void updateOrderByUserId(int user_id, String status) {
         orderRepository.updateOrderByUserId(status, user_id);
     }

@@ -31,6 +31,5 @@ public class FavoriteController {
     @GetMapping("/favorite")
     public List<Favorite> getFavoriteByUserId(@RequestParam int user_id) {
         return favoriteService.getFavoriteByUserId(user_id);
-
     }
 }

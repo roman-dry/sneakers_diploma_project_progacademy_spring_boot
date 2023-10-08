@@ -23,7 +23,7 @@ public class Shipping {
     private String fullname;
     private String phone;
     private String size;
-    private int total_sum;
+    private double total_sum;
     @Column(name = "total_desc")
     private  String totalDesc;
 

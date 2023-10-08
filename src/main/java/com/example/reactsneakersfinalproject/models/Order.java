@@ -20,7 +20,7 @@ public class Order {
     @Column(name = "order_description")
     private String orderDescription;
     @Column(name = "total_sum")
-    private int totalSum;
+    private double totalSum;
     private String status;
 
 
