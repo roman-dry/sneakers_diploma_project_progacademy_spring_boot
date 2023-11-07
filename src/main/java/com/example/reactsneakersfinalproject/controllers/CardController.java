@@ -49,9 +49,5 @@ public class CardController {
         return cardService.findCardById(id);
     }
 
-    @PatchMapping("/admin")
-    public void updateLastIdCard(@RequestParam int id, @RequestParam int last_id) {
-        cardService.updateLastIdCard(id, last_id);
-    }
 }
 

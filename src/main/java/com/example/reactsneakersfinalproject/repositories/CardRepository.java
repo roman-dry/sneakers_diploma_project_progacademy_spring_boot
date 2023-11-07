@@ -19,9 +19,6 @@ public interface CardRepository extends JpaRepository<Card, Integer> {
                     @Param("totalPrice") int totalPrice,
                     @Param("parent_id") int parent_id);
 
-    @Modifying
-    @Query("UPDATE Card c SET c.last_id = :last_id WHERE c.id = :id")
-    void updateLastIdCard(@Param("id") int id, @Param("last_id") int last_id);
 
     @Query("FROM Card c WHERE c.id = :id")
     Card findCardById(@Param("id") int id);

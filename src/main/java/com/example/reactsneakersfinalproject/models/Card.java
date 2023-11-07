@@ -22,6 +22,4 @@ public class Card {
     private int count;
     @Column(name = "totalprice")
     private int totalPrice;
-    @Column(name = "last_id")
-    private int last_id;
 }

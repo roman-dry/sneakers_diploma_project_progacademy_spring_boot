@@ -42,10 +42,4 @@ public class CardService {
         return cardRepository.findCardById(id);
     }
 
-    @Transactional
-    public void updateLastIdCard(int id,  int last_id) {
-        cardRepository.updateLastIdCard(id, last_id);
-
-    }
-
 }
