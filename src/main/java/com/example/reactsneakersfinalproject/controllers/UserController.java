@@ -1,40 +1,32 @@
 package com.example.reactsneakersfinalproject.controllers;
 
-import com.example.reactsneakersfinalproject.models.User;
+import com.example.reactsneakersfinalproject.dto.UserDTO;
 import com.example.reactsneakersfinalproject.services.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequiredArgsConstructor
 @CrossOrigin
-@RequestMapping("/")
+@RequestMapping("/user")
 public class UserController {
     public final UserService userService;
+    private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDTO> getUser(@PathVariable Integer id) {
+        return ResponseEntity.ok(userService.getUser(id));
     }
 
-    @PostMapping("/registration")
-    public User create(@RequestBody User user) {
-        return userService.save(user);
-    }
-
-    @PostMapping("/login")
-    public User getUserByLoginAndPass(@RequestBody User user) {
-        return userService.getUserByLoginAndPass(user);
-    }
-
-    @GetMapping("/login")
-    public User getUserByPass(@RequestParam String email) {
-        return userService.getUserByPass(email);
-    }
-
-    @PatchMapping("/user")
-    public void updateUser(@RequestParam int id,
+    @PatchMapping ("/edit")
+    public void updateUser(@RequestParam Integer id,
                            @RequestParam String name,
                            @RequestParam String email,
                            @RequestParam String phone,
                            @RequestParam String password) {
-        userService.updateUser(id, name, email, phone, password);
+        String newPass = passwordEncoder.encode(password);
+        userService.updateUser(id, name, email, phone, newPass);
     }
 }
