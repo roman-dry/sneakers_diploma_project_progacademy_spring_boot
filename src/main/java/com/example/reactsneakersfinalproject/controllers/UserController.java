@@ -23,10 +23,9 @@ public class UserController {
     @PatchMapping ("/edit")
     public void updateUser(@RequestParam Integer id,
                            @RequestParam String name,
-                           @RequestParam String email,
                            @RequestParam String phone,
                            @RequestParam String password) {
         String newPass = passwordEncoder.encode(password);
-        userService.updateUser(id, name, email, phone, newPass);
+        userService.updateUser(id, name, phone, newPass);
     }
 }

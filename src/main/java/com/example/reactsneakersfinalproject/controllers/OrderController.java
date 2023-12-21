@@ -24,16 +24,16 @@ public class OrderController {
     }
 
     @GetMapping("/orders/{user_id}")
-    public List<Order> getOrdersByUserId(@PathVariable("user_id") int user_id) {
+    public List<Order> getOrdersByUserId(@PathVariable("user_id") Integer user_id) {
         return orderService.getOrderByUserId(user_id);
     }
 
     @DeleteMapping("/orders/{id}")
-    public void deleteOrderById(@PathVariable("id") int id) {
+    public void deleteOrderById(@PathVariable("id") Integer id) {
         orderService.deleteOrderById(id);
     }
     @PatchMapping("/orders")
-    public void updateOrderByUserId(@RequestParam int user_id,
+    public void updateOrderByUserId(@RequestParam Integer user_id,
                                     @RequestParam String status) {
         orderService.updateOrderByUserId(user_id, status);
     }

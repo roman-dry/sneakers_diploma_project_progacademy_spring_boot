@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface FavoriteRepository extends JpaRepository<Favorite, Integer> {
     @Query("FROM Favorite f WHERE f.user_id = :user_id")
-    List<Favorite> getFavoritesByUserId(@Param("user_id") int user_id);
+    List<Favorite> getFavoritesByUserId(@Param("user_id") Integer user_id);
 
     @Modifying
     @Query("DELETE FROM Favorite f WHERE f.parent_id = :parent_id")
-    void deleteFavoriteByParentId(@Param("parent_id") int parent_id);
+    void deleteFavoriteByParentId(@Param("parent_id") Integer parent_id);
 }

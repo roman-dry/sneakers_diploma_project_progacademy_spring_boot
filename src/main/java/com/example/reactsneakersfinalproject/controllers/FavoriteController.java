@@ -24,12 +24,12 @@ public class FavoriteController {
     }
 
     @DeleteMapping("/favorite/{id}")
-    public void deleteFavoriteById(@PathVariable("id") int id) {
+    public void deleteFavoriteById(@PathVariable("id") Integer id) {
         favoriteService.deleteFavoriteById(id);
     }
 
     @GetMapping("/favorite")
-    public List<Favorite> getFavoriteByUserId(@RequestParam int user_id) {
+    public List<Favorite> getFavoriteByUserId(@RequestParam Integer user_id) {
         return favoriteService.getFavoriteByUserId(user_id);
     }
 }

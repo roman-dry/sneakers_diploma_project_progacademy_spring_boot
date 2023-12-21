@@ -11,21 +11,21 @@ import java.util.List;
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Integer> {
     @Query("FROM Cart c WHERE c.user_id = :user_id")
-    List<Cart> getCartsByUserId(@Param("user_id") int user_id);
+    List<Cart> getCartsByUserId(@Param("user_id") Integer user_id);
 
     @Modifying
     @Query("UPDATE Cart c SET c.count = :count, c.totalPrice = :totalprice " +
             "WHERE c.parent_id = :parent_id AND c.user_id = :user_id")
-    void updateCartById(@Param("count") int count,
-                        @Param("totalprice") int totalprice,
-                        @Param("parent_id") int parent_id,
-                        @Param("user_id") int user_id);
+    void updateCartById(@Param("count") Integer count,
+                        @Param("totalprice") Integer totalprice,
+                        @Param("parent_id") Integer parent_id,
+                        @Param("user_id") Integer user_id);
     @Modifying
     @Query("DELETE FROM Cart c WHERE c.user_id = :user_id")
-    void deleteCartByUserId(@Param("user_id") int user_id);
+    void deleteCartByUserId(@Param("user_id") Integer user_id);
 
     @Modifying
     @Query("DELETE FROM Cart c WHERE c.user_id = :user_id and c.parent_id = :parent_id")
-    void deleteByParentId(@Param("user_id") int user_id, @Param("parent_id") int parent_id);
+    void deleteByParentId(@Param("user_id") Integer user_id, @Param("parent_id") Integer parent_id);
 
 }

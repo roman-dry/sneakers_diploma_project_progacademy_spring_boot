@@ -22,16 +22,16 @@ public class OrderService {
     public Order save(Order order) {
         return orderRepository.save(order);
     }
-
-    public void deleteOrderById(int id) {
+    @Transactional
+    public void deleteOrderById(Integer id) {
         orderRepository.deleteById(id);
     }
-
-    public List<Order> getOrderByUserId(int user_id) {
+    @Transactional(readOnly = true)
+    public List<Order> getOrderByUserId(Integer user_id) {
         return orderRepository.getOrderByUserId(user_id);
     }
     @Transactional
-    public void updateOrderByUserId(int user_id, String status) {
+    public void updateOrderByUserId(Integer user_id, String status) {
         orderRepository.updateOrderByUserId(status, user_id);
     }
 }

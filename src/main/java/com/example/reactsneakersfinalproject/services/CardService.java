@@ -18,7 +18,7 @@ public class CardService {
     public CardService(CardRepository cardRepository) {
         this.cardRepository = cardRepository;
     }
-
+    @Transactional(readOnly = true)
     public List<Card> findAll() {
         return cardRepository.findAll();
     }
@@ -27,18 +27,18 @@ public class CardService {
         return cardRepository.save(card);
     }
     @Transactional
-    public void updateCard(int id, String title, int price, String imageURL,
-                           int count, int totalPrice, int parent_id) {
+    public void updateCard(Integer id, String title, Integer price, String imageURL,
+                           Integer count, Integer totalPrice, Integer parent_id) {
 
         cardRepository.updateCard(id, title, price, imageURL, count, totalPrice, parent_id);
 
     }
-
-    public void deleteCardById(int id) {
+    @Transactional
+    public void deleteCardById(Integer id) {
         cardRepository.deleteById(id);
     }
-
-    public Card findCardById(int id) {
+    @Transactional(readOnly = true)
+    public Card findCardById(Integer id) {
         return cardRepository.findCardById(id);
     }
 

@@ -13,13 +13,13 @@ import lombok.NoArgsConstructor;
 public class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    private int parent_id;
+    private Integer id;
+    private Integer parent_id;
     private String title;
-    private int price;
+    private Integer price;
     @Column(name = "imageurl")
     private String imageURL;
-    private int count;
+    private Integer count;
     @Column(name = "totalprice")
-    private int totalPrice;
+    private Integer totalPrice;
 }

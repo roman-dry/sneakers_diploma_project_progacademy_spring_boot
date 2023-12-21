@@ -24,22 +24,22 @@ public class CartController {
     }
 
     @DeleteMapping("/cart/{id}")
-    public void deleteCartById(@PathVariable("id") int id) {
+    public void deleteCartById(@PathVariable("id") Integer id) {
         cartService.deleteCartById(id);
     }
 
     @DeleteMapping("/carted")
-    public void deleteCartByParentId(@RequestParam int user_id, @RequestParam int parent_id ) {
+    public void deleteCartByParentId(@RequestParam Integer user_id, @RequestParam Integer parent_id ) {
         cartService.deleteCartByParentId(user_id, parent_id);
     }
 
     @DeleteMapping("/cart")
-    public void deleteCartByUserId(@RequestParam int user_id) {
+    public void deleteCartByUserId(@RequestParam Integer user_id) {
         cartService.deleteCartByUserId(user_id);
     }
 
     @GetMapping("/cart")
-    public List<Cart> getCartsByUserId(@RequestParam int user_id) {
+    public List<Cart> getCartsByUserId(@RequestParam Integer user_id) {
         return cartService.getCartsByUserId(user_id);
     }
     @PutMapping ("/cart")

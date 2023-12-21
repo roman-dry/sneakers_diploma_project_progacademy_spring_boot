@@ -14,9 +14,9 @@ import lombok.NoArgsConstructor;
 public class Shipping {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "user_id")
-    private int user_id;
+    private Integer user_id;
     private String country;
     private String city;
     private String address;

@@ -22,28 +22,28 @@ public class CartService {
     public Cart save(Cart cart) {
         return cartRepository.save(cart);
     }
-
-    public void deleteCartById(int id) {
+    @Transactional
+    public void deleteCartById(Integer id) {
         cartRepository.deleteById(id);
     }
     @Transactional
-    public void deleteCartByParentId(int user_id, int parent_id) {
+    public void deleteCartByParentId(Integer user_id, Integer parent_id) {
         cartRepository.deleteByParentId(user_id, parent_id);
     }
     @Transactional
-    public void deleteCartByUserId(int user_id) {
+    public void deleteCartByUserId(Integer user_id) {
         cartRepository.deleteCartByUserId(user_id);
     }
-
-    public List<Cart> getCartsByUserId(int user_id) {
+    @Transactional(readOnly = true)
+    public List<Cart> getCartsByUserId(Integer user_id) {
         return cartRepository.getCartsByUserId(user_id);
     }
     @Transactional
     public void updateCartById(Cart cart) {
-        int count = cart.getCount();
-        int totalprice = cart.getTotalPrice();
-        int parent_id = cart.getParent_id();
-        int user_id = cart.getUser_id();
+        Integer count = cart.getCount();
+        Integer totalprice = cart.getTotalPrice();
+        Integer parent_id = cart.getParent_id();
+        Integer user_id = cart.getUser_id();
 
         cartRepository.updateCartById(count, totalprice, parent_id, user_id);
     }

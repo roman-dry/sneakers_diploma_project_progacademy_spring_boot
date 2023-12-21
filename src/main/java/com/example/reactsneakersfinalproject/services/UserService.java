@@ -28,11 +28,10 @@ public class UserService {
     @Transactional
     public void updateUser(Integer id,
                            String name,
-                           String email,
                            String phone,
                            String password) {
 
 
-        userRepository.updateUser(id, name, email, phone, password);
+        userRepository.updateUser(id, name, phone, password);
     }
 }

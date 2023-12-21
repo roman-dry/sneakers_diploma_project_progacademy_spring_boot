@@ -14,13 +14,13 @@ import lombok.NoArgsConstructor;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "user_id")
-    private int user_id;
+    private Integer user_id;
     @Column(name = "order_description")
     private String orderDescription;
     @Column(name = "total_sum")
-    private double totalSum;
+    private Double totalSum;
     private String status;
 
 

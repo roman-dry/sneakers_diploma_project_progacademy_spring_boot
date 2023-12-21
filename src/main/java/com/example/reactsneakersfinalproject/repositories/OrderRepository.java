@@ -13,10 +13,10 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
     @Query("FROM Order o WHERE o.user_id = :user_id AND o.status = 'inactive'")
-    List<Order> getOrderByUserId(@Param("user_id") int user_id);
+    List<Order> getOrderByUserId(@Param("user_id") Integer user_id);
 
     @Modifying
     @Query("UPDATE Order o SET o.status = :status WHERE o.user_id = :user_id")
     void updateOrderByUserId(@Param("status") String status,
-                        @Param("user_id") int user_id);
+                        @Param("user_id") Integer user_id);
 }

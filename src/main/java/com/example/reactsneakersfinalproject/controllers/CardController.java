@@ -29,23 +29,23 @@ public class CardController {
     }
 
     @PatchMapping
-    public void updateCard(@RequestParam int id,
+    public void updateCard(@RequestParam Integer id,
                            @RequestParam String title,
-                           @RequestParam int price,
+                           @RequestParam Integer price,
                            @RequestParam String imageURL,
-                           @RequestParam int count,
-                           @RequestParam int totalPrice,
-                           @RequestParam int parent_id) {
+                           @RequestParam Integer count,
+                           @RequestParam Integer totalPrice,
+                           @RequestParam Integer parent_id) {
         cardService.updateCard(id, title, price, imageURL,
                 count, totalPrice, parent_id);
     }
     @DeleteMapping("/{id}")
-    public void deleteCardById(@PathVariable int id) {
+    public void deleteCardById(@PathVariable Integer id) {
         cardService.deleteCardById(id);
     }
 
     @GetMapping("/{id}")
-    public Card findCardById(@PathVariable int id) {
+    public Card findCardById(@PathVariable Integer id) {
         return cardService.findCardById(id);
     }
 

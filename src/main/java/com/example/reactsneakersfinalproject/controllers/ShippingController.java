@@ -25,11 +25,11 @@ public class ShippingController {
     }
 
     @GetMapping("/shippings/{user_id}")
-    public List<Shipping> getShippingsByUserId(@PathVariable("user_id") int user_id) {
+    public List<Shipping> getShippingsByUserId(@PathVariable("user_id") Integer user_id) {
         return shippingService.getShippingByUserId(user_id);
     }
     @DeleteMapping("/shippings/{id}")
-    public void deleteShippingById(@PathVariable("id") int id) {
+    public void deleteShippingById(@PathVariable("id") Integer id) {
         shippingService.deleteShippingById(id);
     }
 }

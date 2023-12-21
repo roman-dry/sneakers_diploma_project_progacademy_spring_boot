@@ -23,11 +23,11 @@ public class FavoriteService {
         return favoriteRepository.save(favorite);
     }
     @Transactional
-    public void deleteFavoriteById(int id) {
+    public void deleteFavoriteById(Integer id) {
         favoriteRepository.deleteFavoriteByParentId(id);
     }
-
-    public List<Favorite> getFavoriteByUserId(int user_id) {
+    @Transactional(readOnly = true)
+    public List<Favorite> getFavoriteByUserId(Integer user_id) {
         return favoriteRepository.getFavoritesByUserId(user_id);
     }
 

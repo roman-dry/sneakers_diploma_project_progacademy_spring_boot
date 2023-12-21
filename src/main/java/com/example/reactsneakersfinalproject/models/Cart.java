@@ -14,16 +14,16 @@ import lombok.NoArgsConstructor;
 public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String title;
-    private int price;
+    private Integer price;
     @Column(name = "imageurl")
     private String imageURL;
-    private int count;
+    private Integer count;
     @Column(name = "totalprice")
-    private int totalPrice;
-    private int parent_id;
-    private int user_id;
+    private Integer totalPrice;
+    private Integer parent_id;
+    private Integer user_id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", insertable=false, updatable=false)
