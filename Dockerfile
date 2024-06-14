@@ -1,16 +1,14 @@
-#
-# Build stage
-#
-FROM maven:3.8.3-openjdk-17 AS build
-WORKDIR /app
-COPY . /app/
-RUN mvn clean package
+# Use the official OpenJDK image from the Docker Hub
+FROM openjdk:17-jre-slim
 
-#
-# Package stage
-#
-FROM openjdk:17-alpine
-WORKDIR /app
-COPY --from=build /app/target/*.jar /app/app.jar
-EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+# Add a volume pointing to /tmp
+VOLUME /tmp
+
+# The application's jar file
+ARG JAR_FILE=target/React-Sneakers-final-project.jar
+
+# Add the application's jar to the container
+COPY ${JAR_FILE} app.jar
+
+# Run the jar file
+ENTRYPOINT ["java","-jar","/app.jar"]
